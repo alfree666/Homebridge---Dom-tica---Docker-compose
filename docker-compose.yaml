@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+
+  homebridge:
+    image: oznu/homebridge:latest
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./volumes/homebridge:/homebridge
+    logging:
+      driver: json-file
+      options:
+        max-size: "10mb"
+        max-file: "1"
+
+        
